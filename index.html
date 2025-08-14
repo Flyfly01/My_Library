@@ -8,6 +8,37 @@
 
 <body>
   <div class="bookshelf"></div>
+
+  <dialog id="dialogbox">
+    <form id="bookform">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required>
+
+      <label for="pages">Pages</label>
+      <input type="number" id="pages" name="pages" min="1" required>
+
+      <p>Have you read this book yet?</p>
+
+      <label>
+        <input type="radio" name="readstatus" value="read" required>Read
+      </label>
+
+      <label>
+        <input type="radio" name="readstatus" value="not-read">Not Read Yet
+      </label>
+
+      <button type="button" id="cancel" formmethod="dialog">Cancel</button>
+      <button type="submit" id="confirmbk">Add Book</button>
+    </form>
+  </dialog>
+
+  <div>
+    <button class="addnewbk">Add a New Book!</button>
+  </div>
+
   <script src="index.js"></script>
 </body>
 </html>
