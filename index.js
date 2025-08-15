@@ -70,6 +70,10 @@ form.addEventListener("submit", (e) => {
   addBookToLibrary(title, author, pages, readstatus);
 
   displayBook(myLibrary[myLibrary.length-1]);
+
+  form.reset();
+
+  dialogbox.close();
 })
 
 
