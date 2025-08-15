@@ -1,4 +1,9 @@
 const bookshelf = document.querySelector(".bookshelf");
+const addnewbk = document.querySelector(".addnewbk");
+const dialogbox = document.querySelector("#dialogbox");
+const cancelbtn = document.querySelector("#cancel");
+const confirmbkbtn = document.querySelector("#confirmbk");
+const form = document.querySelector("#bookform");
 
 const myLibrary = [];
 
@@ -39,7 +44,42 @@ function displayBook (book) {
   bookshelf.appendChild(card);
 }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
-addBookToLibrary("1984", "George Orwell", 328, true);
+//addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
+//addBookToLibrary("1984", "George Orwell", 328, true);
 
-myLibrary.forEach(displayBook);
+//myLibrary.forEach(displayBook);
+
+addnewbk.addEventListener("click", () => {
+  dialogbox.showModal();
+})
+
+//Optional - already catered for with formmethod="dialog"
+cancelbtn.addEventListener("click", () => {
+  dialogbox.close();
+})
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const formdata = new FormData(form);
+  const title = formdata.get("title");
+  const author = formdata.get("author");
+  const pages = formdata.get("pages");
+  const readstatus = formdata.get("readstatus");
+
+  addBookToLibrary(title, author, pages, readstatus);
+
+  displayBook(myLibrary[myLibrary.length-1]);
+})
+
+
+
+
+
+
+
+
+
+
+
+
