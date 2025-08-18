@@ -31,6 +31,7 @@ function addBookToLibrary (title, author, pages, readstatus) {
 function displayBook (book) { //The book parameter refers to an existing book object in our array
   const card = document.createElement("div");
   card.classList.add("card");
+  card.dataset.id = book.id; //Linking cardID with bookID
 
   const title = document.createElement("h3");
   title.textContent = book.title; //book.title is retrieved from the book object
@@ -47,6 +48,16 @@ function displayBook (book) { //The book parameter refers to an existing book ob
   const removeBkButton = document.createElement("button");
   removeBkButton.classList.add("removeBk");
   removeBkButton.textContent = "Remove Book";
+  removeBkButton.addEventListener("click", () => {
+    const cardID = card.dataset.id; //Finding the card using the bookID
+    const bookindex = myLibrary.findIndex(book => book.id === cardID) //Locating the book in the array. Once the answer is not -1, you found the book
+    if (bookindex !== -1) {
+      myLibrary.splice(bookindex, 1); //Remove the book from the array
+    }
+    card.remove();
+  });
+
+  
 
   /*const readButton = document.createElement("button");
   readButton.classList.add("readButton");
