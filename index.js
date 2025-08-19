@@ -12,16 +12,12 @@ function Book (title, author, pages, readstatus) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.readstatus = readstatus;
+  this.readstatus = readstatus; //boolean - will be true or false
 }
 
-/*Book.prototype.changeReadStatus = function () {
-  if (this.readstatus === "Read") {
-    this.readstatus = "Not read yet";
-  } else {
-    this.readstatus = "Read";
-  }
-};*/
+Book.prototype.changeReadStatus = function () {
+  this.readstatus = !this.readstatus; //toggling the boolean
+};
 
 function addBookToLibrary (title, author, pages, readstatus) {
   const newBook = new Book (title, author, pages, readstatus);
@@ -57,22 +53,20 @@ function displayBook (book) { //The book parameter refers to an existing book ob
     card.remove();
   });
 
-  
-
-  /*const readButton = document.createElement("button");
+  const readButton = document.createElement("button");
   readButton.classList.add("readButton");
   readButton.textContent = "Change read status";
   readButton.addEventListener("click", () => {
-    book.changeReadStatus;
-    read.textContent = book.readstatus;
-  })*/
+    book.changeReadStatus();
+    readstatus.textContent = book.readstatus ? "Read" : "Not read yet";
+  })
 
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
   card.appendChild(readstatus);
   card.appendChild(removeBkButton);
-  //card.appendChild(readButton);
+  card.appendChild(readButton);
 
   bookshelf.appendChild(card);
 }
@@ -98,7 +92,7 @@ form.addEventListener("submit", (e) => {
   const title = formdata.get("title");
   const author = formdata.get("author");
   const pages = formdata.get("pages");
-  const readstatus = formdata.get("readstatus");
+  const readstatus = formdata.get("readstatus") === "true";
 
   addBookToLibrary(title, author, pages, readstatus);
 
