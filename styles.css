@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1fr 5fr;
+  background-color: green;
+}
+
+.header {
+  background-color: blue;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+}
+
+.lhs {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  gap: 15px;
+}
+
+.rhs {
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+}
