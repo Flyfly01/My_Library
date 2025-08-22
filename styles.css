@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'kingthings_foundationregular';
+  src: url('fonts/Kingthings-Foundation/medievalfont/kingthings_foundation-webfont.woff2') format('woff2'),
+       url('fonts/Kingthings-Foundation/medievalfont/kingthings_foundation-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'chantelli_antiquaregular';
+  src: url('fonts/Chantelli-Antiqua/otherfont/chantelli_antiqua-webfont.woff2') format('woff2'),
+       url('fonts/Chantelli-Antiqua/otherfont/chantelli_antiqua-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'nimbus_monoregular';
+  src: url('fonts/nimbus-mono/body/nimbusmono-regular-webfont.woff2') format('woff2'),
+       url('fonts/nimbus-mono/body/nimbusmono-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,35 +35,210 @@ html, body {
   height: 100%;
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-}
-
 .container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1;
   grid-template-rows: 1fr 5fr;
-  background-color: green;
+  /*background-color: #DCC7AA;*/
+  background-color: #A97954;
 }
 
 .header {
-  background-color: blue;
+  background-color: #1E423F;
   display: flex;
   padding: 30px;
   justify-content: space-between;
+  box-shadow: 0 6px 10px rgba(0,0,00.25);
+}
+
+h1 {
+  color: #f6f2ea;
+  font-family: 'kingthings_foundationregular';
+  font-size: 40px;
+}
+
+.addnewbk {
+  font-family: 'kingthings_foundationregular';
+  padding: 20px 35px;
+  font-size: 20px;
+  border-radius: 18px;
+  background-color: #f6f2ea;
+  cursor: pointer;
+}
+
+.addnewbk:hover {
+  background-color: #c9c0b0;
+  color: white;
 }
 
 .lhs {
   display: flex;
-  background-color: white;
   align-items: center;
   gap: 15px;
 }
 
 .rhs {
-  background-color: yellow;
+  /*background-color: yellow;*/
   display: flex;
   align-items: center;
 }
+
+.card {
+  background-color: #f6f2ea;
+  border-left: 10px solid #1E423F;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px;
+  padding-left: 35px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+h3 {
+  font-family: 'chantelli_antiquaregular';
+  font-size: 22px;
+}
+
+p {
+  font-size: 18px;
+  font-family:'nimbus_monoregular';
+}
+
+.read,
+.notread {
+  font-size: 18px;
+  font-family:'nimbus_monoregular';
+}
+
+div .read {
+  background-color: rgb(196, 248, 196);
+  border-radius: 4px;
+}
+
+div .notread {
+  background-color: rgb(235, 177, 177);
+  border-radius: 4px;
+}
+
+.btndiv {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.removeBk {
+  padding: 10px 15px;
+  font-family: 'nimbus_monoregular';
+  font-size: 16px;
+  border: 2px solid rgba(172, 5, 5, 1);
+  color: rgba(172, 5, 5, 1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.removeBk:hover {
+  color: white;
+  background-color: rgb(211, 166, 166);
+}
+
+.readButton {
+  padding: 10px 15px;
+  font-family: 'nimbus_monoregular';
+  font-size: 16px;
+  border: 2px solid rgb(164, 183, 212);
+  color:rgb(85, 101, 124);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.readButton:hover {
+  color: white;
+  background-color: rgb(110, 133, 167);
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
+  grid-auto-rows: 250px;
+  gap: 20px;
+  padding: 30px;
+}
+
+#dialogbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(164, 183, 212);
+  transform: translate(-50%, -50%);
+}
+
+#bookform {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+}
+
+#bookform p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+}
+
+input {
+  padding: 10px;
+}
+
+.radiobuttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.formbuttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cancel,
+#confirmbk {
+  padding: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+#cancel {
+  border: 2px solid rgba(172, 5, 5, 1);
+  color: rgba(172, 5, 5, 1);
+}
+
+#cancel:hover {
+  color: white;
+  background-color: rgb(211, 166, 166);;
+}
+
+#confirmbk {
+  border: 2px solid rgb(45, 77, 122);
+  color:rgb(45, 77, 122);
+}
+
+#confirmbk:hover {
+  color: white;
+  background-color: rgb(137, 174, 226);
+}
+
